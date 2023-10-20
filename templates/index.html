@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 50px;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: hsl(211, 100%, 35%);
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customer Churn Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age"><br>
+        
+        <label for="gender">Gender:</label>
+        <input type="text" id="gender" name="gender" placeholder="e.g. Male/Female"><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="e.g. City/State"><br>
+
+        <label for="subscription_length">Subscription Length (Months):</label>
+        <input type="text" id="subscription_length" name="subscription_length"><br>
+
+        <label for="monthly_bill">Monthly Bill:</label>
+        <input type="text" id="monthly_bill" name="monthly_bill"><br>
+
+        <label for="total_usage">Total Usage (GB):</label>
+        <input type="text" id="total_usage" name="total_usage"><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+    <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
